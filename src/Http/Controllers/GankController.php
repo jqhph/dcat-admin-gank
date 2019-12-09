@@ -21,7 +21,7 @@ class GankController extends Controller
         $grid = $this->grid();
 
         $grid->disableFilter();
-        $grid->getFilter()
+        $grid->filter()
             ->withoutInputBorder()
             ->expand()
             ->resetPosition()
@@ -30,7 +30,7 @@ class GankController extends Controller
         return $content
             ->header('所有干货')
             ->description('每日分享妹子图 和 技术干货')
-            ->body($grid->getFilter())
+            ->body($grid->filter())
             ->body(function (Row $row) {
                 $row->column(7, Gank::navbar());
 

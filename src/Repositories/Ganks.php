@@ -25,8 +25,8 @@ class Ganks extends Repository
         $perPage = $model->getPerPage();
 
         // 获取筛选参数
-        $category = $model->getFilter()->input(Grid\Filter\Scope::QUERY_NAME, 'all');
-        $keyword  = trim($model->getFilter()->input('keyword'));
+        $category = $model->filter()->input(Grid\Filter\Scope::QUERY_NAME, 'all');
+        $keyword  = trim($model->filter()->input('keyword'));
 
         $api = $keyword ? $this->searchApi : $this->api;
 
@@ -38,7 +38,7 @@ class Ganks extends Repository
             $api
         ));
         $data = collect(
-            json_decode((string)$response->getBody(), true)['results'] ?? []
+            json_decode((string) $response->getBody(), true)['results'] ?? []
         );
 
         $total = $keyword ? 400 : ($category == 'all' ? 1000 : 500);

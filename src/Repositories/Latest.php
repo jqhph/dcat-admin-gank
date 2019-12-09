@@ -19,13 +19,13 @@ class Latest extends Repository
     public function get(Grid\Model $model)
     {
         // 获取筛选参数
-        $type = $model->getFilter()->input(Grid\Filter\Scope::QUERY_NAME);
+        $type = $model->filter()->input(Grid\Filter\Scope::QUERY_NAME);
 
         $client = new \GuzzleHttp\Client();
 
         $response = $client->get($this->api);
         $data = collect(
-            json_decode((string)$response->getBody(), true)['results'] ?? []
+            json_decode((string) $response->getBody(), true)['results'] ?? []
         );
 
         if ($type) {

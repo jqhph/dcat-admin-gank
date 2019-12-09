@@ -72,7 +72,7 @@ class Gank extends Extension
 
         $grid->disableActions();
         $grid->disableBatchDelete();
-        $grid->disableExport();
+        $grid->disableExporter();
         $grid->disableCreateButton();
         $grid->disableFilterButton();
         $grid->disableQuickCreateButton();
