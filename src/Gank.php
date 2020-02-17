@@ -75,7 +75,6 @@ class Gank extends Extension
         $grid->disableExporter();
         $grid->disableCreateButton();
         $grid->disableFilterButton();
-        $grid->disableQuickCreateButton();
 
         return $grid;
     }

@@ -22,6 +22,7 @@ class GankController extends Controller
 
         $grid->disableFilter();
         $grid->filter()
+            ->panel()
             ->withoutInputBorder()
             ->expand()
             ->resetPosition()
@@ -33,7 +34,6 @@ class GankController extends Controller
             ->body($grid->filter())
             ->body(function (Row $row) {
                 $row->column(7, Gank::navbar());
-
             })
             ->body($grid);
     }
@@ -51,7 +51,6 @@ class GankController extends Controller
             if ($category != '福利') {
                 $filter->like('keyword', ucfirst($category))->width('300px')->placeholder('请输入');
             }
-
         });
     }
 }
