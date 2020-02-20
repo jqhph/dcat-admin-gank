@@ -14,7 +14,7 @@ class Gank extends Extension
 
     protected $assets = __DIR__.'/../resources/assets';
 
-    protected $composerJson = __DIR__.'/../composer.json';
+    protected $composer = __DIR__.'/../composer.json';
 
     public static $categoryColorsMap = [
         'App'      => 'var(--purple)',
@@ -45,7 +45,6 @@ class Gank extends Extension
                 return "<a href='$url'>$v</a>";
             })
             ->style('max-width:705px');
-
     }
 
     /**
@@ -104,5 +103,4 @@ class Gank extends Extension
             return "<span class='label' style='background:{$map[$v]}'>$v</span>";
         });
     }
-
 }
